@@ -418,7 +418,15 @@ there.
 /* Larger than Desktop HD */
 @media (min-width: 1200px) {}
 
+/*classes criadas por mim*/
+
+.menu{
+    z-index: 101;
+}
+
+
 .comeco{
+    width: 100%;
     position: absolute;
     margin: auto;
     top: 30%;
