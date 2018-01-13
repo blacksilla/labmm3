@@ -1,6 +1,9 @@
 /**
  * Created by blacksilla on 13/01/2018.
  */
+/**
+ * Created by blacksilla on 13/01/2018.
+ */
 
 window.onload=function () {
     carregaElementos();
@@ -19,5 +22,5 @@ function carregaElementos(){
 function jogar() {
     document.getElementById("menu_inicial").style.visibility="hidden";
     document.getElementById("main").style.visibility="visible";
-    
+
 }
