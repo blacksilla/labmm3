@@ -339,7 +339,8 @@ td:last-child {
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 button,
 .button {
-    margin-bottom: 1rem; }
+    margin-bottom: 1rem;
+width: 213.64px;}
 input,
 textarea,
 select,
@@ -416,3 +417,13 @@ there.
 
 /* Larger than Desktop HD */
 @media (min-width: 1200px) {}
+
+.comeco{
+    position: absolute;
+    margin: auto;
+    top: 30%;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+}
