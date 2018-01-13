@@ -422,10 +422,12 @@ there.
 
 .menu{
     z-index: 101;
+    background-color: white;
 }
 
 
 .comeco{
+    background-color: white;
     width: 100%;
     position: absolute;
     margin: auto;
@@ -434,4 +436,5 @@ there.
     bottom: 0;
     left: 0;
     text-align: center;
+    z-index: 101;
 }

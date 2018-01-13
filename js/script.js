@@ -3,7 +3,6 @@
  */
 
 window.onload=function () {
-    console.log("teste"); 
     carregaElementos();
     document.getElementById("jogar").onclick=function () {
         jogar();
@@ -13,10 +12,12 @@ window.onload=function () {
 
 
 function carregaElementos(){
-    document.getElementById("menu_inicial").style.display="block";
+    document.getElementById("main").style.visibility="hidden";
+    document.getElementById("menu_inicial").style.visibility="visible";
 }
 
 function jogar() {
-    document.getElementById("menu_inicial").style.display="none";
+    document.getElementById("menu_inicial").style.visibility="hidden";
+    document.getElementById("main").style.visibility="visible";
     
 }

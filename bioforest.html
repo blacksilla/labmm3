@@ -6,6 +6,7 @@
     <link href="css/main.css" rel="stylesheet" type="text/css" media="screen"/>
     <link href="css/normalize.css" rel="stylesheet" type="text/css" media="screen"/>
     <script src="js/script.js"></script>
+    <script type="module" src="js/main.js" ></script>
 </head>
 <body>
 <div id="menu_inicial" class="menu">
@@ -20,7 +21,9 @@
 
     <div id="main">
        <div id="escolha_personagem"></div>
-        <div id="jogo"></div>
+        <div id="jogo">
+            <canvas id="screen" width="640" height="640"></canvas>
+        </div>
     </div>
 </div>
 </body>
