@@ -27,14 +27,18 @@ function processaTecla(e){
     console.log("tecla",tecla);
     switch(tecla){
         case "ArrowRight":
-            document.getElementById("player").style.left=parseInt(document.getElementById("player").style.left) + 20 + "px";
-            document.getElementById("bg").style.left=parseInt(document.getElementById("bg").style.left) - 20 + "px";
-            console.log("posicao jogador",posicao_jogador,"posicao fundo",posicao_fundo);
+            if(posicao_jogador>=0 && posicao_jogador<=240) {
+                document.getElementById("player").style.left = parseInt(document.getElementById("player").style.left) + 20 + "px";
+                document.getElementById("bg").style.left = parseInt(document.getElementById("bg").style.left) - 20 + "px";
+                console.log("posicao jogador", posicao_jogador, "posicao fundo", posicao_fundo);
+            }
             break;
         case "ArrowLeft":
-            document.getElementById("player").style.left=parseInt(document.getElementById("player").style.left) - 20 + "px";
-            document.getElementById("bg").style.left=parseInt(document.getElementById("bg").style.left) + 20 + "px";
-            console.log("posicao jogador",posicao_jogador,"posicao fundo",posicao_fundo);
+            if(posicao_jogador<=240 && posicao_jogador>=0) {
+                document.getElementById("player").style.left = parseInt(document.getElementById("player").style.left) - 20 + "px";
+                document.getElementById("bg").style.left = parseInt(document.getElementById("bg").style.left) + 20 + "px";
+                console.log("posicao jogador", posicao_jogador, "posicao fundo", posicao_fundo);
+            }
             break;
     }
    /* if(tecla == " "){
