@@ -6,31 +6,35 @@
  */
 
 window.onload=function () {
-    window.onkeydown=function(e){processaSalto(e)};
+    window.onkeydown=function(e){processaTecla(e)};
     jogar();
 };
 
-var posicao_jogador;
+var posicao_jogador,posicao_fundo;
 
 function jogar() {
-    posicao_jogador=parseInt(document.getElementById("player").style.left);
-    console.log(posicao_jogador);
     document.getElementById("player").style.left="0px";
-    document.getElementById("player").style.top="0px";
+    posicao_jogador=parseInt(document.getElementById("player").style.left);
+    posicao_fundo=parseInt(document.getElementById("bg").style.left);
+    console.log(posicao_jogador,posicao_fundo);
+
+
 
 }
 
-function processaSalto(e){
+function processaTecla(e){
     var tecla=e.key;
     console.log("tecla",tecla);
     switch(tecla){
         case "ArrowRight":
-            document.getElementById("player").style.left=parseInt(document.getElementById("player").style.left) + 10 + "px";
-            console.log(parseInt(document.getElementById("player").style.left));
+            document.getElementById("player").style.left=parseInt(document.getElementById("player").style.left) + 20 + "px";
+            document.getElementById("bg").style.left=parseInt(document.getElementById("bg").style.left) - 20 + "px";
+            console.log("posicao jogador",posicao_jogador,"posicao fundo",posicao_fundo);
             break;
         case "ArrowLeft":
-            document.getElementById("player").style.left=parseInt(document.getElementById("player").style.left) - 10 + "px";
-            console.log(parseInt(document.getElementById("player").style.left));
+            document.getElementById("player").style.left=parseInt(document.getElementById("player").style.left) - 20 + "px";
+            document.getElementById("bg").style.left=parseInt(document.getElementById("bg").style.left) + 20 + "px";
+            console.log("posicao jogador",posicao_jogador,"posicao fundo",posicao_fundo);
             break;
     }
    /* if(tecla == " "){
