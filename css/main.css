@@ -453,20 +453,20 @@ there.
 
 }
 
+.boddyJogo{
+    background-image: url("../img/cenario/Nível 1 e 2-02.png");
+    background-repeat:no-repeat;
+    background-size: 89%;
+    width: 100%;
+    height: 100%;
+}
+
 .screen{
-    background-color: black;
-    width: 700px;
-    height: 467px;
-    position: absolute;
-    margin: auto;
-    top: 20px;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    text-align: center;
+    width: 100%;
+    height: 100%;
+}
+
+#player{
 
 }
 
-.background-jogo{
-    background-color: gray;
-}

@@ -6,36 +6,39 @@
  */
 
 window.onload=function () {
-    window.onkeyup=function(e){processaSalto(e)};
-    carregaElementos();
-    document.getElementById("jogar").onclick=function () {
-        jogar();
-    }
+    window.onkeydown=function(e){processaSalto(e)};
+    jogar();
 };
 
-
-
-function carregaElementos(){
-    document.getElementById("main").style.visibility="hidden";
-    document.getElementById("menu_inicial").style.visibility="visible";
-}
+var posicao_jogador;
 
 function jogar() {
-    document.getElementById("menu_inicial").style.visibility="hidden";
-    document.getElementById("main").style.visibility="visible";
-    document.getElementById("screen").innerHTML=document.getElementById("screen").innerHTML + "<img id='jogador' src='img/personagem/andar/personagem1.png' />"
-    document.getElementById("jogador").style.left="-200px";
+    posicao_jogador=parseInt(document.getElementById("player").style.left);
+    console.log(posicao_jogador);
+    document.getElementById("player").style.left="0px";
+    document.getElementById("player").style.top="0px";
 
 }
 
 function processaSalto(e){
     var tecla=e.key;
     console.log("tecla",tecla);
-    if(tecla == " "){
+    switch(tecla){
+        case "ArrowRight":
+            document.getElementById("player").style.left=parseInt(document.getElementById("player").style.left) + 10 + "px";
+            console.log(parseInt(document.getElementById("player").style.left));
+            break;
+        case "ArrowLeft":
+            document.getElementById("player").style.left=parseInt(document.getElementById("player").style.left) - 10 + "px";
+            console.log(parseInt(document.getElementById("player").style.left));
+            break;
+    }
+   /* if(tecla == " "){
         salto=setInterval(function(){salta()},100);
     }
+    */
 }
-
+/*
 function salta(){
     var altura=parseInt(document.getElementById("homer").style.top);
     console.log(document.getElementById("homer").style.top);
@@ -45,3 +48,6 @@ function salta(){
     clearInterval(salto);
 
 }
+    */
+
+
