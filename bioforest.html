@@ -6,25 +6,26 @@
     <link href="css/main.css" rel="stylesheet" type="text/css" media="screen"/>
     <link href="css/normalize.css" rel="stylesheet" type="text/css" media="screen"/>
     <script src="js/script.js"></script>
-    <script type="module" src="js/main.js" ></script>
+    <script type="module" src="js/script.js" ></script>
 </head>
 <body>
 <div id="menu_inicial" class="menu">
     <div id="comeco" class="comeco">
-        <img src="img/bioforest%20logo.png"/>
+        <img src="img/menu/BOTOES_MENU-02.png" height="146" width="438"/>
         <br><br>
-       <button class="button" id="jogar">Jogar</button><br>
-        <button class="button" id="regras">Regras e Instruções</button><br>
-        <button class="button" id="sobre">Sobre</button>
+        <input type="image"  id="jogar" src="img/menu/botoes_over-03.png" height="63" width="280"/><br>
+        <input type="image"  id="regras" src="img/menu/botoes_over-04.png" height="63" width="280"/><br>
+        <input type="image"  id="sobre" src="img/menu/botoes_over-05.png" height="63" width="280"/>
     </div>
 
 
-    <div id="main">
+    <div id="main" class="main">
        <div id="escolha_personagem"></div>
         <div id="jogo">
             <canvas id="screen" width="640" height="640"></canvas>
         </div>
     </div>
+
 </div>
 </body>
 </html>
