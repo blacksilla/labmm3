@@ -23,7 +23,8 @@ function carregaElementos(){
 function jogar() {
     document.getElementById("menu_inicial").style.visibility="hidden";
     document.getElementById("main").style.visibility="visible";
-    document.getElementById("screen").innerHTML=document.getElementById("screen").innerHTML + "<img id='jogador' src='img/personagem/andar/ELEMENTOS-02.png' />"
+    document.getElementById("screen").innerHTML=document.getElementById("screen").innerHTML + "<img id='jogador' src='img/personagem/andar/personagem1.png' />"
+    document.getElementById("jogador").style.left="-200px";
 
 }
 
