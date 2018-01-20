@@ -154,20 +154,20 @@ function detetaColisao(obj1,obj2,obj1largura,obj2largura) {
 
 
 
-   /* if(tecla == " "){
-        salto=setInterval(function(){salta()},100);
-    }
-    */
+/* if(tecla == " "){
+ salto=setInterval(function(){salta()},100);
+ }
+ */
 /*
-function salta(){
-    var altura=parseInt(document.getElementById("homer").style.top);
-    console.log(document.getElementById("homer").style.top);
-    document.getElementById("homer").style.top=altura - 5 + "px";
-    if(altura==(195-65))
-        document.getElementById("homer").style.top=altura + 5 + "px";
-    clearInterval(salto);
+ function salta(){
+ var altura=parseInt(document.getElementById("homer").style.top);
+ console.log(document.getElementById("homer").style.top);
+ document.getElementById("homer").style.top=altura - 5 + "px";
+ if(altura==(195-65))
+ document.getElementById("homer").style.top=altura + 5 + "px";
+ clearInterval(salto);
 
-}
-    */
+ }
+ */
 
 
