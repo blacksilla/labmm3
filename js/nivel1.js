@@ -81,7 +81,7 @@ function mover(e) {
         case "esquerda":
             document.getElementById("player").style.left = parseInt(document.getElementById("player").style.left) - 5+ "px";
             console.log("posicao jogador", posicao_jogador, "posicao fundo", posicao_fundo);
-
+            animacao("e");
             break;
     }
 }
