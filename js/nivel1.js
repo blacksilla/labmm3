@@ -1,22 +1,19 @@
 /**
  * Created by blacksilla on 13/01/2018.
  */
-/**
- * Created by blacksilla on 13/01/2018.
- */
+window.onload=function () {
+    carregaElementos();
+    window.onkeydown=function(e){processaTecla(e)};
+
+};
+
+
 var posicao_jogador,posicao_fundo;
 var c=1;
 var sementes=0,ferramentas=0;
 var deteta=null;
 var posSemente1,posSemente2,posSemente3,posSemente4,posSemente5;
 var c1,c2,c3,c4,c5;
-
-window.onload=function () {
-    carregaElementos();
-    window.onkeydown=function(e){processaTecla(e)};
-};
-
-
 
 function carregaElementos() {
     document.getElementById("player").style.left=0 +"px";
@@ -29,8 +26,8 @@ function carregaElementos() {
     document.getElementById("semente3").style.left=parseInt(Math.random()*(2300-200)+200) + "px";
     document.getElementById("semente4").style.left=parseInt(Math.random()*(2300-200)+200) + "px";
     document.getElementById("semente5").style.left=parseInt(Math.random()*(2300-200)+200) + "px";
-    posicao_jogador=parseFloat(document.getElementById("player").style.left);
-    posicao_fundo=parseFloat(document.getElementById("bg").style.left);
+    posicao_jogador=parseInt(document.getElementById("player").style.left);
+    posicao_fundo=parseInt(document.getElementById("bg").style.left);
 
 }
 
@@ -88,8 +85,8 @@ function animacao(k) {
 }
 //console.log("source = ",document.getElementById("player").src);
 function processaTecla(e) {
-    posicao_jogador = parseFloat(document.getElementById("player").style.left);
-    posicao_fundo = parseFloat(document.getElementById("bg").style.left);
+    posicao_jogador = parseInt(document.getElementById("player").style.left);
+    posicao_fundo = parseInt(document.getElementById("bg").style.left);
     var tecla = e.key;
     console.log("tecla", tecla);
     switch (tecla) {
@@ -129,27 +126,26 @@ function processaTecla(e) {
     posSemente3=parseInt(document.getElementById("semente3").style.left);
     posSemente4=parseInt(document.getElementById("semente4").style.left);
     posSemente5=parseInt(document.getElementById("semente5").style.left);
-
     c1=detetaColisao(posicao_jogador,posSemente1,49,30);
     console.log("c1 = ",c1);
     if(c1==true){
-        document.getElementById("semente1").disabled="true";
+        document.getElementById("semente1").style.display="none";
+        c1=false;
         sementes++;
-        document.getElementById("pontSementes").innerHTML="Sementes:"+sementes;
+        document.getElementById("pontSementes").innerHTML="Sementes:" + sementes;
     }
 }
 
+
 function detetaColisao(obj1,obj2,obj1largura,obj2largura) {
+    var obj1D=obj1+obj1largura, obj2D=obj2+obj2largura;
     console.log("obj1 = ",obj1,"obj2 = ",obj2, obj1largura,obj2largura);
-    if(obj1+obj1largura>=obj2 && obj2+obj2largura<=obj1){
+    if((obj1D>=obj2 && obj1D<obj2D) || (obj1<=obj2D && obj1D>obj2)){
         return true;
     }else{
         return false;
     }
-
 }
-
-
 
 
 
