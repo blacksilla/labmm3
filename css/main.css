@@ -484,3 +484,20 @@ body{
     overflow:hidden;
 }
 
+#contador{
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0;
+    text-align: justify;
+    text-justify: inter-word;
+    float: top;
+    background-color: #376B3D;
+    color: white;
+}
+
+
+.semente{
+    position: absolute;
+    top:355px;
+}
