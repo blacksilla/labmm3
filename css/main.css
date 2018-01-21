@@ -434,6 +434,19 @@ there.
     margin: 0 auto;
 }
 
+#ecra{
+    background-image: url("../img/fundo.jpg");
+    background-repeat:no-repeat;
+    background-size:cover;
+    width: 100%;
+    min-height: 100vh;
+    max-height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0 auto;
+}
+
 
 .comeco{
     width: 100%;
@@ -483,6 +496,17 @@ iframe{
 body{
     overflow:hidden;
 }
+#logo_ecra{
+    position: absolute;
+    margin: auto;
+    top: 0%;
+    right: 0;
+    bottom: 75%;
+    left: 0;
+    text-align: center;
+    z-index: 100;
+}
+
 
 #contador{
     position: absolute;
@@ -496,6 +520,19 @@ body{
     color: white;
 }
 
+#botoes_niveis{
+    position: absolute;
+    margin: auto;
+    right: 0;
+    bottom: 15%;
+    left: 0;
+    text-align: center;
+    z-index: 100;
+}
+
+#botoes_niveis button{
+    background-color: whitesmoke;
+}
 .semente{
     position: absolute;
     top:355px;

@@ -1,13 +1,22 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Bioforest</title>
     <link href="css/main.css" rel="stylesheet" type="text/css" media="screen"/>
     <link href="css/normalize.css" rel="stylesheet" type="text/css" media="screen"/>
     <script src="js/nivel1.js"></script>
 </head>
 <body>
-    <iframe id=jogo height="450px" width="800px" src="nivel1.html?autoplay=1" scrolling="no" frameborder="0"></iframe>
+<div id="ecra">
+    <img id="logo_ecra" src="img/menu/BOTOES_MENU-02.png" height="146" width="438"/>
+    <iframe id=jogo height="450px" width="800px" src="nivel1.html?autoplay=1" scrolling="no" frameborder="1"></iframe>
+    <div id="botoes_niveis">
+        <button type='button' onClick="document.getElementById('jogo').src='nivel1.html'">Nível 1</button>
+        <button type='button' onClick="document.getElementById('jogo').src='nivel2.html'">Nível 2</button>
+    </div>
+
+</div>
+
 </body>
 </html>
