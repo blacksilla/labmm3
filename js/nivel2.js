@@ -133,6 +133,7 @@ function processaTecla(e) {
     c1=detetaColisao(posicao_jogador,posSemente1,49,30);
     console.log("c1 = ",c1);
     if(c1==true){
+        c1=false;
         document.getElementById("semente1").disabled="true";
         sementes++;
         document.getElementById("pontSementes").innerHTML="Sementes:"+sementes;
