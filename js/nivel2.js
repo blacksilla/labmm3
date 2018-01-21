@@ -6,7 +6,7 @@
  */
 var posicao_jogador,posicao_fundo;
 var c=1;
-var sementes=localStorage.getItem(se),ferramentas=0;
+var sementes=0,ferramentas=0;
 var deteta=null;
 var posSemente1,posSemente2,posSemente3,posSemente4,posSemente5;
 var c1,c2,c3,c4,c5;

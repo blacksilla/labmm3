@@ -507,6 +507,17 @@ body{
     z-index: 100;
 }
 
+.logo{
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 100%;
+    left: 0;
+    text-align: center;
+    z-index: 100;
+}
+
 
 #contador{
     position: absolute;
