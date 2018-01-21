@@ -15,7 +15,6 @@ var sementes=0,ferramentas=0;
 var deteta=null;
 var posSemente1,posSemente2,posSemente3,posSemente4,posSemente5;
 var c1,c2,c3,c4,c5;
-localStorage.setItem(sementes,"sementes");
 
 function carregaElementos() {
     document.getElementById("player").style.left=0 +"px";
@@ -43,7 +42,7 @@ function processaTecla(e) {
     switch (tecla) {
         case "ArrowRight":
             animacao("d");
-            player_esq=false;
+            player_esq = false;
             if (posicao_jogador >= 0 && posicao_jogador <= 240) {
                 mover("direita");
             }
@@ -58,7 +57,7 @@ function processaTecla(e) {
             }
             break;
         case "ArrowLeft":
-            player_esq=true;
+            player_esq = true;
             animacao("e");
             if (posicao_jogador <= 260 && posicao_jogador > 0) {
                 mover("esquerda");
@@ -74,13 +73,18 @@ function processaTecla(e) {
             }
             break;
     }
-    posSemente1=parseInt(document.getElementById("semente1").style.left);
-    posSemente2=parseInt(document.getElementById("semente2").style.left);
-    posSemente3=parseInt(document.getElementById("semente3").style.left);
-    posSemente4=parseInt(document.getElementById("semente4").style.left);
-    posSemente5=parseInt(document.getElementById("semente5").style.left);
+    posSemente1 = parseInt(document.getElementById("semente1").style.left);
+    posSemente2 = parseInt(document.getElementById("semente2").style.left);
+    posSemente3 = parseInt(document.getElementById("semente3").style.left);
+    posSemente4 = parseInt(document.getElementById("semente4").style.left);
+    posSemente5 = parseInt(document.getElementById("semente5").style.left);
     detetaColisao();
+    c1=document.getElementById("semente1").style.display;
+    if(c1=="none"){
+        sementes=sementes+1;
+    }
 }
+
 
 function mover(e) {
     switch (e) {
@@ -146,21 +150,15 @@ function detetaColisao() {
         playerH = parseInt(document.getElementById("player").style.left);
     else
         playerH = parseInt(document.getElementById("player").style.left) + 49;
-    for (var l = 0; l < 5; l++) {
+    for (var l = 1; l < 6; l++) {
         sementeH = parseInt(document.getElementById("semente"+l).style.left);
         sementeV = parseInt(document.getElementById("semente"+l).style.top);
         if (playerV >= sementeV && playerV <= sementeV + 30 && playerH >= sementeH && playerH <= sementeH + 30) {
             document.getElementById("semente" + l).style.display = "none";
-            active[l] = true;
         }
         sementes = 0;
-        for (var c = 0;c < active.length; c++) {
-            if (active[c]) {
-                sementes++;
             }
         }
- }
-}
 
 
 
