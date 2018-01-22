@@ -202,7 +202,14 @@ function detetaColisao() {
             if ((playerH+49 >= buracoH && playerH + 49 <= buracoH + 76
                 || playerH <= buracoH + 76 && playerH >= buracoH)
                 && (playerV >= buracoV)) {
-                window.alert("Perdeste");
+                ferramentas=0;
+                document.getElementById("pontFerramentas").innerHTML="Ferramentas: "+ ferramentas;
+                window.alert("Perdeste!");
+                for(i=1;i<6;i++){
+                    document.getElementById("ferramenta"+i).remove();
+                    document.getElementById("buraco"+i).remove();
+                }
+                carregaElementos();
             }
         }
     }
