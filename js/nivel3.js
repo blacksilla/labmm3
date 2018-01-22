@@ -9,10 +9,9 @@ window.onload=function () {
 
 
 var posicao_jogador,posicao_fundo;
-var player_esq=true;
-var active=[];
 var c=1;
 var tiro=false;
+var fps;
 var deteta=null;
 var posSemente1,posSemente2,posSemente3,posSemente4,posSemente5;
 var c1,c2,c3,c4,c5;
@@ -24,7 +23,7 @@ function carregaElementos() {
     posicao_jogador=parseInt(document.getElementById("player").style.left);
     posicao_fundo=parseInt(document.getElementById("bg").style.left);
     document.getElementById("player").style.top=275 +"px";
-
+    fps = setInterval("actualizaJogo()", 1000 / 60);
     window.onkeydown=function(e){processaTecla(e)};
 
 }
@@ -37,7 +36,6 @@ function processaTecla(e) {
     switch (tecla) {
         case "ArrowRight":
             animacao("d");
-            player_esq = false;
             if (posicao_jogador >= 0 && posicao_jogador <= 240) {
                 mover("direita");
             }
@@ -47,7 +45,6 @@ function processaTecla(e) {
             }
             break;
         case "ArrowLeft":
-            player_esq = true;
             animacao("e");
             if (posicao_jogador <= 260 && posicao_jogador > 0) {
                 mover("esquerda");
@@ -62,16 +59,16 @@ function processaTecla(e) {
                 animacao("cima");
                 break;
         case " ":
-            shoot();
+            disparar= setInterval(function(){ativaTiro()},100);
             break;
 
     }
     detetaColisao();
-    if(ferramentas==5 && sementes==5){
+    /*if(ferramentas==5 && sementes==5){
         document.getElementById("btn_nivel_3").disabled="false"
     }else {
         document.getElementById("btn_nivel_3").disabled = "true"
-    }
+    }*/
 }
 
 
@@ -136,7 +133,7 @@ function detetaColisao() {
     var sementeV=0;
     var sementeH=0;
 
-    for (var l = 1; l < 6; l++) {
+   /* for (var l = 1; l < 6; l++) {
         if(document.getElementById("ferramenta" + l).style.display !== "none") {
             sementeV = parseInt(document.getElementById("ferramenta" + l).style.top);
             sementeH = parseInt(document.getElementById("ferramenta" + l).style.left);
@@ -151,8 +148,9 @@ function detetaColisao() {
             }
         }
     }
-    document.cookie = JSON.stringify({"sementes": sementes, "ferramentas":ferramentas});
-    localStorage.setItem("ferramentas",ferramentas);
+    //document.cookie = JSON.stringify({"sementes": sementes, "ferramentas":ferramentas});
+    //localStorage.setItem("ferramentas",ferramentas);
+*/
 }
 
 
@@ -178,8 +176,29 @@ function salta() {
 }
 
 
-function shoot() {
-    var posGota=parseInt(document.getElementById("player").left)+49;
+function actualizaJogo() {
+    if (tiro)
+        moverTiro();
+}
+
+function ativaTiro() {
+    if (!tiro) {
+        document.getElementById("gota").style.left = parseInt(document.getElementById("player").style.left) + 49 + "px";
+        console.log(document.getElementById("gota").style.left);
+        document.getElementById("gota").style.top = parseInt(document.getElementById("player").style.top) + 30 + "px";
+        tiro = true;
+        disparar= setInterval(function(){moverTiro()},100);
+    }
+}
+
+function moverTiro() {
+    var gotaY = parseInt(document.getElementById("gota").style.left);
+    if (tiro) {
+        if (gotaY >= -10)
+            document.getElementById("gota").style.left = gotaY + 5 + "px";
+        else
+            tiro = false;
+    }
 }
 
 

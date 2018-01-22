@@ -9,8 +9,6 @@ window.onload=function () {
 
 
 var posicao_jogador,posicao_fundo;
-var player_esq=true;
-var active=[];
 var c=1;
 var ferramentas=0;
 var deteta=null;
@@ -49,7 +47,6 @@ function processaTecla(e) {
     switch (tecla) {
         case "ArrowRight":
             animacao("d");
-            player_esq = false;
             if (posicao_jogador >= 0 && posicao_jogador <= 240) {
                 mover("direita");
             }
@@ -64,7 +61,6 @@ function processaTecla(e) {
             }
             break;
         case "ArrowLeft":
-            player_esq = true;
             animacao("e");
             if (posicao_jogador <= 260 && posicao_jogador > 0) {
                 mover("esquerda");
@@ -92,11 +88,11 @@ function processaTecla(e) {
     posSemente4 = parseInt(document.getElementById("ferramenta4").style.left);
     posSemente5 = parseInt(document.getElementById("ferramenta5").style.left);
     detetaColisao();
-    if(ferramentas==5 && sementes==5){
+    /*if(ferramentas==5){
         document.getElementById("btn_nivel_3").disabled="false"
     }else {
         document.getElementById("btn_nivel_3").disabled = "true"
-    }
+    }*/
 }
 
 
@@ -176,8 +172,8 @@ function detetaColisao() {
             }
         }
     }
-    document.cookie = JSON.stringify({"sementes": sementes, "ferramentas":ferramentas});
-    localStorage.setItem("ferramentas",ferramentas);
+    //document.cookie = JSON.stringify({"sementes": sementes, "ferramentas":ferramentas});
+    //localStorage.setItem("ferramentas",ferramentas);
 }
 
 
