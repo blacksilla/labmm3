@@ -556,4 +556,9 @@ body{
 
 #gota{
     position: absolute;
+    z-index: 101;
+}
+
+.inimigo{
+    position: absolute;
 }

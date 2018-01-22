@@ -11,8 +11,9 @@ window.onload=function () {
 var posicao_jogador,posicao_fundo;
 var c=1;
 var tiro=false;
+var flame=0;
 var fps;
-var deteta=null;
+var disparar=null;
 var posSemente1,posSemente2,posSemente3,posSemente4,posSemente5;
 var c1,c2,c3,c4,c5;
 
@@ -20,8 +21,21 @@ function carregaElementos() {
     document.getElementById("gota").style.left = "-50px";
     document.getElementById("player").style.left="0px";
     document.getElementById("bg").style.left=0 +"px";
+    for(i=1;i<6;i++){
+        document.getElementById("action").innerHTML=document.getElementById("action").innerHTML + "<img class='inimigo' src='img/inimigo/ELEMENTOS-11.png' id='flame"+i+"' width='100' height='140' />"
+    }
+    document.getElementById("flame1").style.left=parseInt(Math.random()*(2300-200)+200) + "px";
+    document.getElementById("flame2").style.left=parseInt(Math.random()*(2300-200)+200) + "px";
+    document.getElementById("flame3").style.left=parseInt(Math.random()*(2300-200)+200) + "px";
+    document.getElementById("flame4").style.left=parseInt(Math.random()*(2300-200)+200) + "px";
+    document.getElementById("flame5").style.left=parseInt(Math.random()*(2300-200)+200) + "px";
     posicao_jogador=parseInt(document.getElementById("player").style.left);
     posicao_fundo=parseInt(document.getElementById("bg").style.left);
+    document.getElementById("flame1").style.top= 270 + "px";
+    document.getElementById("flame2").style.top= 270 + "px";
+    document.getElementById("flame3").style.top= 270 + "px";
+    document.getElementById("flame4").style.top= 270 + "px";
+    document.getElementById("flame5").style.top= 270 + "px";
     document.getElementById("player").style.top=275 +"px";
     fps = setInterval("actualizaJogo()", 1000 / 60);
     window.onkeydown=function(e){processaTecla(e)};
@@ -42,6 +56,11 @@ function processaTecla(e) {
             //console.log("posicao jogador", posicao_jogador, "posicao fundo", posicao_fundo);
             if (posicao_fundo > -2300) {
                 document.getElementById("bg").style.left = parseInt(document.getElementById("bg").style.left) - 5 + "px";
+                document.getElementById("flame1").style.left = parseInt(document.getElementById("flame1").style.left) - 5 + "px";
+                document.getElementById("flame2").style.left = parseInt(document.getElementById("flame2").style.left) - 5 + "px";
+                document.getElementById("flame3").style.left = parseInt(document.getElementById("flame3").style.left) - 5 + "px";
+                document.getElementById("flame4").style.left = parseInt(document.getElementById("flame4").style.left) - 5 + "px";
+                document.getElementById("flame5").style.left = parseInt(document.getElementById("flame5").style.left) - 5 + "px";
             }
             break;
         case "ArrowLeft":
@@ -52,14 +71,18 @@ function processaTecla(e) {
             //console.log("posicao jogador", posicao_jogador, "posicao fundo", posicao_fundo);
             if (posicao_fundo < 0) {
                 document.getElementById("bg").style.left = parseInt(document.getElementById("bg").style.left) + 5 + "px";
+                document.getElementById("flame1").style.left = parseInt(document.getElementById("flame1").style.left) + 5 + "px";
+                document.getElementById("flame2").style.left = parseInt(document.getElementById("flame2").style.left) + 5 + "px";
+                document.getElementById("flame3").style.left = parseInt(document.getElementById("flame3").style.left) + 5 + "px";
+                document.getElementById("flame4").style.left = parseInt(document.getElementById("flame4").style.left) + 5 + "px";
+                document.getElementById("flame5").style.left = parseInt(document.getElementById("flame5").style.left) + 5 + "px";
             }
             break;
         case "ArrowUp":
                 salta();
-                animacao("cima");
                 break;
         case " ":
-            disparar= setInterval(function(){ativaTiro()},100);
+            disparar=setInterval(function(){ativaTiro()},100);
             break;
 
     }
@@ -127,30 +150,30 @@ function animacao(k) {
 //console.log("source = ",document.getElementById("player").src);
 
 function detetaColisao() {
-    var playerV = parseInt(document.getElementById("player").style.top) +  104;
-    var playerH = parseInt(document.getElementById("player").style.left);
+    var gotaV = parseInt(document.getElementById("gota").style.top) +  30;
+    var gotaH = parseInt(document.getElementById("gota").style.left);
 
-    var sementeV=0;
-    var sementeH=0;
+    var flameV=0;
+    var flameH=0;
 
-   /* for (var l = 1; l < 6; l++) {
-        if(document.getElementById("ferramenta" + l).style.display !== "none") {
-            sementeV = parseInt(document.getElementById("ferramenta" + l).style.top);
-            sementeH = parseInt(document.getElementById("ferramenta" + l).style.left);
+   for (var l = 1; l < 6; l++) {
+        if(document.getElementById("flame" + l).style.display !== "none") {
+            flameV = parseInt(document.getElementById("flame" + l).style.top);
+            flameH = parseInt(document.getElementById("flame" + l).style.left);
 
-            if ((playerH+49 >= sementeH && playerH + 49 <= sementeH + 30
-                || playerH <= sementeH + 30 && playerH >= sementeH)
-                && (playerV >= sementeV)) {
-
-                document.getElementById("ferramenta" + l).style.display = "none";
-                ferramentas++;
-                document.getElementById("pontFerramentas").innerHTML="Ferramentas: "+ ferramentas;
+            if ((gotaH+30 >= flameH && gotaH + 30 <= flameH + 140
+                || gotaH <= flameH + 140 && gotaH >= flameH)
+                && (gotaV >= flameV)) {
+                clearInterval(disparar);
+                document.getElementById("flame" + l).style.display = "none";
+                flame++;
+                console.log(flame);
             }
         }
     }
     //document.cookie = JSON.stringify({"sementes": sementes, "ferramentas":ferramentas});
     //localStorage.setItem("ferramentas",ferramentas);
-*/
+
 }
 
 
@@ -187,7 +210,7 @@ function ativaTiro() {
         console.log(document.getElementById("gota").style.left);
         document.getElementById("gota").style.top = parseInt(document.getElementById("player").style.top) + 30 + "px";
         tiro = true;
-        disparar= setInterval(function(){moverTiro()},100);
+        disparar= setInterval(function(){actualizaJogo()},100);
     }
 }
 

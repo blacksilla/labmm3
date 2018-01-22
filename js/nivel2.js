@@ -10,10 +10,13 @@ window.onload=function () {
 
 var posicao_jogador,posicao_fundo;
 var c=1;
+var fired = false;
 var ferramentas=0;
 var deteta=null;
 var posSemente1,posSemente2,posSemente3,posSemente4,posSemente5;
 var c1,c2,c3,c4,c5;
+
+
 
 function carregaElementos() {
     document.getElementById("player").style.left="0px";
@@ -36,6 +39,7 @@ function carregaElementos() {
     document.getElementById("player").style.top=275 +"px";
 
     window.onkeydown=function(e){processaTecla(e)};
+
 
 }
 
@@ -80,13 +84,7 @@ function processaTecla(e) {
                 animacao("cima");
                 break;
 
-
     }
-    posSemente1 = parseInt(document.getElementById("ferramenta1").style.left);
-    posSemente2 = parseInt(document.getElementById("ferramenta2").style.left);
-    posSemente3 = parseInt(document.getElementById("ferramenta3").style.left);
-    posSemente4 = parseInt(document.getElementById("ferramenta4").style.left);
-    posSemente5 = parseInt(document.getElementById("ferramenta5").style.left);
     detetaColisao();
     /*if(ferramentas==5){
         document.getElementById("btn_nivel_3").disabled="false"
