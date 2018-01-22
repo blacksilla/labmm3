@@ -163,9 +163,12 @@ function detetaColisao() {
             if ((gotaH+30 >= flameH && gotaH + 30 <= flameH + 140
                 || gotaH <= flameH + 140 && gotaH >= flameH)
                 && (gotaV >= flameV)) {
-                clearInterval(fps);
                 document.getElementById("flame" + l).style.display = "none";
+                document.getElementById("gota").style.left = "-50px";
+                clearInterval(fps);
                 flame++;
+                window.onkeydown=function(e){processaTecla(e)};
+                fps = setInterval("actualizaJogo()", 1000 / 60);
                 console.log(flame);
             }
         }
@@ -202,6 +205,9 @@ function actualizaJogo() {
     if (tiro)
         moverTiro();
     detetaColisao();
+    if(flame==5){
+        
+    }
 }
 
 function ativaTiro() {
