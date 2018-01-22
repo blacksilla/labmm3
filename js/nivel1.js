@@ -18,7 +18,7 @@ var deteta=null;
 
 function carregaElementos() {
     localStorage.clear();
-    musica_fundo.play();
+   // musica_fundo.play();
     sementes=localStorage.getItem("sementes");
     ferramentas=localStorage.getItem("ferramentas");
     document.getElementById("player").style.left="0px";
@@ -162,8 +162,9 @@ function detetaColisao() {
         }
     }
     localStorage.setItem("sementes",sementes);
+    localStorage.getItem("sementes","ferramentas");
     if(sementes==5 && ferramentas==5){
-        document.getElementById("btn_nivel_3").disabled=false;
+        document.getElementById("jogo").src="video/animacao_final.mp4";
     }
 }
 

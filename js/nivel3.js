@@ -3,17 +3,21 @@
  */
 window.onload=function () {
     carregaElementos();
+    musica_final.play();
+    musica_final.volume=0.2;
+    musica_final.loop=true;
 
 };
 
 
-
+var musica_final= new Audio("sons/somFinal.mp3");
 var posicao_jogador,posicao_fundo;
 var c=1;
 var tiro=false;
 var flame=0;
 var fps;
 var gota=new Audio("sons/gota.mp3");
+
 
 function carregaElementos() {
     document.getElementById("gota").style.left = "-50px";
@@ -154,6 +158,9 @@ function detetaColisao() {
     var flameV=0;
     var flameH=0;
 
+    var playerV = parseInt(document.getElementById("player").style.top) +  104;
+    var playerH = parseInt(document.getElementById("player").style.left);
+
    for (var l = 1; l < 6; l++) {
         if(document.getElementById("flame" + l).style.display !== "none") {
             flameV = parseInt(document.getElementById("flame" + l).style.top);
@@ -166,6 +173,19 @@ function detetaColisao() {
                 document.getElementById("gota").style.left = "-50px";
                 clearInterval(fps);
                 flame++;
+                window.onkeydown=function(e){processaTecla(e)};
+                fps = setInterval("actualizaJogo()", 1000 / 60);
+                console.log(flame);
+            }
+            if ((playerH+30 >= flameH && playerH + 30 <= flameH + 140
+                || playerH <= flameH + 140 && playerH >= flameH)
+                && (playerV >= flameV)) {
+                clearInterval(fps);
+                window.alert("Perdeste! Morreste queimado!");
+                for(i=1;i<6;i++){
+                    document.getElementById("flame"+i).remove();
+                }
+                carregaElementos();
                 window.onkeydown=function(e){processaTecla(e)};
                 fps = setInterval("actualizaJogo()", 1000 / 60);
                 console.log(flame);
@@ -204,7 +224,8 @@ function actualizaJogo() {
 
     detetaColisao();
     if(flame==5){
-
+        window.alert("Parabéns! Agora a floresta vai ficar linda e verdejante!");
+        window.top.location = "bioforest.html";
     }
 }
 
