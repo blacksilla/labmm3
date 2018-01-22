@@ -26,6 +26,7 @@ function carregaElementos() {
         document.getElementById("action").innerHTML=document.getElementById("action").innerHTML + "<img class='buracos' src='img/buraco0.png' id='buraco"+i+"'/>"
     }
 
+
     document.getElementById("ferramenta1").style.left=parseInt(Math.random()*(2300-200)+200) + "px";
     document.getElementById("ferramenta2").style.left=parseInt(Math.random()*(2300-200)+200) + "px";
     document.getElementById("ferramenta3").style.left=parseInt(Math.random()*(2300-200)+200) + "px";
@@ -191,6 +192,9 @@ function detetaColisao() {
                 document.getElementById("ferramenta" + l).style.display = "none";
                 ferramentas++;
                 document.getElementById("pontFerramentas").innerHTML="Ferramentas: "+ ferramentas;
+                if(ferramentas==5){
+                    window.alert("Conseguiste as 5 ferramentas!");
+                }
             }
         }
     }
@@ -211,6 +215,18 @@ function detetaColisao() {
                 }
                 carregaElementos();
             }
+        }
+    }
+    for (var m = 1; m < 6; m++) {
+            buracoV = parseInt(document.getElementById("buraco" + k).style.top);
+            buracoH = parseInt(document.getElementById("buraco" + k).style.left);
+
+            if ((sementeH+30 >= buracoH && sementeH + 30 <= buracoH + 76
+                || sementeH <= buracoH + 76 && sementeH >= buracoH)
+                && (sementeV >= buracoV)) {
+                for(i=1;i<6;i++){
+                    document.getElementById("buraco"+i).style.left=parseInt(Math.random()*(2300-200)+200) + "px";
+                }
         }
     }
 

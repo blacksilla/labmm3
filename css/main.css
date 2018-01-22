@@ -565,6 +565,7 @@ body{
 .ferramentas{
     position: absolute;
     top:355px;
+    z-index: 102;
 }
 
 #gota{
