@@ -231,7 +231,7 @@ function actualizaJogo() {
     if(flame==5){
         clearInterval(fps);
         window.alert("Parabéns! Agora a floresta vai estar linda e verdejante!");
-        window.top.location = "bioforest.html";
+        window.top.location = "index.html";
     }
 }
 
