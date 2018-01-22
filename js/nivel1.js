@@ -6,6 +6,7 @@ window.onload=function () {
 
 };
 
+
 var posicao_jogador,posicao_fundo;
 var active=[];
 var c=1;
