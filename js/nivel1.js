@@ -3,10 +3,12 @@
  */
 window.onload=function () {
     carregaElementos();
-
+document.getElementById("sound_btn").onclick=function () {
+          musica_fundo.pause();
+}
 };
 
-
+var musica_fundo= new Audio("sons/fundo_jogo.mp3");
 var posicao_jogador,posicao_fundo;
 var active=[];
 var c=1;
@@ -16,6 +18,7 @@ var deteta=null;
 
 function carregaElementos() {
     localStorage.clear();
+    musica_fundo.play();
     sementes=localStorage.getItem("sementes");
     ferramentas=localStorage.getItem("ferramentas");
     document.getElementById("player").style.left="0px";

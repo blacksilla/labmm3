@@ -657,16 +657,40 @@ body{
     z-index: 99;
 }
 
-#overlay {
-    position: fixed; /* Sit on top of the page content */
-    display: none; /* Hidden by default */
-    width: 100%; /* Full width (cover the whole page) */
-    height: 100%; /* Full height (cover the whole page) */
-    top: 0;
-    left: 0;
+.myButtonSoundOn{
+    background: url(../img/menu/sound_on.png) no-repeat;
+    cursor: pointer;
+    border: none;
+    margin: auto;
+    position: absolute;
     right: 0;
-    bottom: 0;
-    background-color: rgba(0,0,0,0.5); /* Black background with opacity */
-    z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
-    cursor: pointer; /* Add a pointer on hover */
+    top: 2%;
+    left: 92%;
+    width: 70px;
+    height: 56px;
+    text-align: right;
+    z-index: 101;
+}
+.myButtonSoundOn:hover{
+    background:url(../img/menu/sound_on_hover.png) no-repeat;
+    border: none;
+}
+
+.myButtonSoundOff{
+    background: url(../img/menu/sound_off.png) no-repeat;
+    cursor: pointer;
+    border: none;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    top: 2%;
+    left: 92%;
+    width: 70px;
+    height: 56px;
+    text-align: right;
+    z-index: 101;
+}
+.myButtonSoundOff:hover{
+    background:url(../img/menu/sound_off_hover.png) no-repeat;
+    border: none;
 }
