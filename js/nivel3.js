@@ -15,11 +15,15 @@ var posicao_jogador,posicao_fundo;
 var c=1;
 var tiro=false;
 var flame=0;
+var sementes=0;
+var ferramentas=0;
 var fps;
 var gota=new Audio("sons/gota.mp3");
 
 
 function carregaElementos() {
+    sementes=localStorage.getItem("sementes");
+    ferramentas=localStorage.getItem("ferramentas");
     document.getElementById("gota").style.left = "-50px";
     document.getElementById("player").style.left="0px";
     document.getElementById("bg").style.left=0 +"px";
@@ -86,6 +90,7 @@ function processaTecla(e) {
         case " ":
             gota.play();
             ativaTiro();
+            console.log(sementes,ferramentas);
             break;
 
     }
@@ -224,7 +229,8 @@ function actualizaJogo() {
 
     detetaColisao();
     if(flame==5){
-        window.alert("Parabéns! Agora a floresta vai ficar linda e verdejante!");
+        clearInterval(fps);
+        window.alert("Parabéns! Agora a floresta vai estar linda e verdejante!");
         window.top.location = "bioforest.html";
     }
 }

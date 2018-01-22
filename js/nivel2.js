@@ -233,6 +233,7 @@ function detetaColisao() {
     }
 
     localStorage.setItem("ferramentas",ferramentas);
+    localStorage.getItem("sementes","ferramentas");
 }
 
 

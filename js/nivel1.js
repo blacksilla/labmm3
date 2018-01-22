@@ -162,7 +162,6 @@ function detetaColisao() {
         }
     }
     localStorage.setItem("sementes",sementes);
-    localStorage.getItem("sementes","ferramentas");
     if(sementes==5 && ferramentas==5){
         document.getElementById("jogo").src="video/animacao_final.mp4";
     }
