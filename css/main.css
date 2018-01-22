@@ -435,7 +435,7 @@ there.
 }
 
 #ecra{
-    background-image: url("../img/fundo.jpg");
+    background-image: url("../img/bio_background-17.png");
     background-repeat:no-repeat;
     background-size:cover;
     width: 100%;
@@ -534,12 +534,14 @@ body{
     top: 0;
     right: 0;
     padding: 0;
-    text-align: justify;
+    text-align: center;
     text-justify: inter-word;
     float: top;
     background-color: #376B3D;
     color: white;
+    margin: auto;
 }
+
 
 #botoes_niveis{
     position: absolute;
