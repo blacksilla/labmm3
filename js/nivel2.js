@@ -30,11 +30,11 @@ function carregaElementos() {
     document.getElementById("ferramenta5").style.left=parseInt(Math.random()*(2300-200)+200) + "px";
     posicao_jogador=parseInt(document.getElementById("player").style.left);
     posicao_fundo=parseInt(document.getElementById("bg").style.left);
-    document.getElementById("ferramenta1").style.top= 355 + "px";
-    document.getElementById("ferramenta2").style.top= 355 + "px";
-    document.getElementById("ferramenta3").style.top= 355 + "px";
-    document.getElementById("ferramenta4").style.top= 355 + "px";
-    document.getElementById("ferramenta5").style.top= 355 + "px";
+    document.getElementById("ferramenta1").style.top= 350 + "px";
+    document.getElementById("ferramenta2").style.top= 350 + "px";
+    document.getElementById("ferramenta3").style.top= 350 + "px";
+    document.getElementById("ferramenta4").style.top= 350 + "px";
+    document.getElementById("ferramenta5").style.top= 350 + "px";
     document.getElementById("player").style.top=275 +"px";
 
     window.onkeydown=function(e){processaTecla(e)};

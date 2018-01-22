@@ -12,12 +12,13 @@ var posicao_jogador,posicao_fundo;
 var player_esq=true;
 var active=[];
 var c=1;
-var ferramentas=0;
+var tiro=false;
 var deteta=null;
 var posSemente1,posSemente2,posSemente3,posSemente4,posSemente5;
 var c1,c2,c3,c4,c5;
 
 function carregaElementos() {
+    document.getElementById("gota").style.left = "-50px";
     document.getElementById("player").style.left="0px";
     document.getElementById("bg").style.left=0 +"px";
     posicao_jogador=parseInt(document.getElementById("player").style.left);
@@ -60,7 +61,9 @@ function processaTecla(e) {
                 salta();
                 animacao("cima");
                 break;
-
+        case " ":
+            shoot();
+            break;
 
     }
     detetaColisao();
@@ -175,7 +178,9 @@ function salta() {
 }
 
 
-
+function shoot() {
+    var posGota=parseInt(document.getElementById("player").left)+49;
+}
 
 
 
