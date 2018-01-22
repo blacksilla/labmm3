@@ -16,6 +16,7 @@ var posSemente1,posSemente2,posSemente3,posSemente4,posSemente5;
 var c1,c2,c3,c4,c5;
 
 function carregaElementos() {
+    document.getElementById("btn_nivel_3").disabled = "true"
     document.getElementById("player").style.left="0px";
     document.getElementById("bg").style.left=0 +"px";
     for(i=1;i<6;i++){

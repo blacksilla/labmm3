@@ -8,7 +8,6 @@ window.onload=function () {
 
 
 
-var myGameArea;
 var posicao_jogador,posicao_fundo;
 var player_esq=true;
 var active=[];
@@ -93,6 +92,11 @@ function processaTecla(e) {
     posSemente4 = parseInt(document.getElementById("ferramenta4").style.left);
     posSemente5 = parseInt(document.getElementById("ferramenta5").style.left);
     detetaColisao();
+    if(ferramentas==5 && sementes==5){
+        document.getElementById("btn_nivel_3").disabled="false"
+    }else {
+        document.getElementById("btn_nivel_3").disabled = "true"
+    }
 }
 
 
@@ -172,7 +176,7 @@ function detetaColisao() {
             }
         }
     }
-    //document.cookie = JSON.stringify({"sementes": sementes, "ferramentas":ferramentas});
+    document.cookie = JSON.stringify({"sementes": sementes, "ferramentas":ferramentas});
     localStorage.setItem("ferramentas",ferramentas);
 }
 
@@ -197,6 +201,9 @@ function salta() {
         console.log(playerV);
     }, 100);
 }
+
+
+
 
 
 
