@@ -459,7 +459,17 @@ there.
     text-align: center;
     z-index: 100;
 }
-
+.comeco2{
+    width: 100%;
+    position: absolute;
+    margin: auto;
+    top: 20%;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+    z-index: 100;
+}
 
 .main{
     z-index: 99;
