@@ -13,9 +13,7 @@ var c=1;
 var tiro=false;
 var flame=0;
 var fps;
-var disparar=null;
-var posSemente1,posSemente2,posSemente3,posSemente4,posSemente5;
-var c1,c2,c3,c4,c5;
+var gota=new Audio("sons/gota.mp3");
 
 function carregaElementos() {
     document.getElementById("gota").style.left = "-50px";
@@ -82,6 +80,7 @@ function processaTecla(e) {
                 salta();
                 break;
         case " ":
+            gota.play();
             ativaTiro();
             break;
 
@@ -202,6 +201,7 @@ function salta() {
 function actualizaJogo() {
     if (tiro)
         moverTiro();
+
     detetaColisao();
     if(flame==5){
 
@@ -220,8 +220,9 @@ function ativaTiro() {
 function moverTiro() {
     var gotaY = parseInt(document.getElementById("gota").style.left);
     if (tiro) {
-        if (gotaY >= -10)
+        if (gotaY >= -10){
             document.getElementById("gota").style.left = gotaY + 5 + "px";
+        }
         else
             tiro = false;
     }

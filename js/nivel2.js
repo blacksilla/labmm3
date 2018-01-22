@@ -6,7 +6,6 @@ window.onload=function () {
 
 };
 
-var salto = new Audio("../sons/salto.mp3");
 var x=document.cookie;
 var posicao_jogador,posicao_fundo;
 var c=1;
@@ -106,8 +105,6 @@ function processaTecla(e) {
             }
             break;
         case "ArrowUp":
-            salto.pause();
-            salto.play();
                 salta();
                 animacao("cima");
                 break;
