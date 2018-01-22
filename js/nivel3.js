@@ -82,11 +82,10 @@ function processaTecla(e) {
                 salta();
                 break;
         case " ":
-            disparar=setInterval(function(){ativaTiro()},100);
+            ativaTiro();
             break;
 
     }
-    detetaColisao();
     /*if(ferramentas==5 && sementes==5){
         document.getElementById("btn_nivel_3").disabled="false"
     }else {
@@ -164,7 +163,7 @@ function detetaColisao() {
             if ((gotaH+30 >= flameH && gotaH + 30 <= flameH + 140
                 || gotaH <= flameH + 140 && gotaH >= flameH)
                 && (gotaV >= flameV)) {
-                clearInterval(disparar);
+                clearInterval(fps);
                 document.getElementById("flame" + l).style.display = "none";
                 flame++;
                 console.log(flame);
@@ -202,6 +201,7 @@ function salta() {
 function actualizaJogo() {
     if (tiro)
         moverTiro();
+    detetaColisao();
 }
 
 function ativaTiro() {
@@ -210,7 +210,6 @@ function ativaTiro() {
         console.log(document.getElementById("gota").style.left);
         document.getElementById("gota").style.top = parseInt(document.getElementById("player").style.top) + 30 + "px";
         tiro = true;
-        disparar= setInterval(function(){actualizaJogo()},100);
     }
 }
 
