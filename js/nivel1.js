@@ -6,7 +6,6 @@ window.onload=function () {
 
 };
 
-
 var posicao_jogador,posicao_fundo;
 var player_esq=true;
 var active=[];
@@ -29,6 +28,12 @@ function carregaElementos() {
     document.getElementById("semente5").style.left=parseInt(Math.random()*(2300-200)+200) + "px";
     posicao_jogador=parseInt(document.getElementById("player").style.left);
     posicao_fundo=parseInt(document.getElementById("bg").style.left);
+    document.getElementById("semente1").style.top= 355 + "px";
+    document.getElementById("semente2").style.top= 355 + "px";
+    document.getElementById("semente3").style.top= 355 + "px";
+    document.getElementById("semente4").style.top= 355 + "px";
+    document.getElementById("semente5").style.top= 355 + "px";
+    document.getElementById("player").style.top=275 +"px";
 
     window.onkeydown=function(e){processaTecla(e)};
 
@@ -79,10 +84,6 @@ function processaTecla(e) {
     posSemente4 = parseInt(document.getElementById("semente4").style.left);
     posSemente5 = parseInt(document.getElementById("semente5").style.left);
     detetaColisao();
-    c1=document.getElementById("semente1").style.display;
-    if(c1=="none"){
-        sementes=sementes+1;
-    }
 }
 
 
@@ -141,24 +142,31 @@ function animacao(k) {
 //console.log("source = ",document.getElementById("player").src);
 
 function detetaColisao() {
-    var playerV = parseInt(document.getElementById("player").style.top) + 104;
-    var playerH = 0;
+    var playerV = parseInt(document.getElementById("player").style.top) +  104;
+    var playerH = parseInt(document.getElementById("player").style.left);
+
     var sementeV=0;
     var sementeH=0;
 
-    if(player_esq)
-        playerH = parseInt(document.getElementById("player").style.left);
-    else
-        playerH = parseInt(document.getElementById("player").style.left) + 49;
     for (var l = 1; l < 6; l++) {
-        sementeH = parseInt(document.getElementById("semente"+l).style.left);
-        sementeV = parseInt(document.getElementById("semente"+l).style.top);
-        if (playerV >= sementeV && playerV <= sementeV + 30 && playerH >= sementeH && playerH <= sementeH + 30) {
-            document.getElementById("semente" + l).style.display = "none";
-        }
-        sementes = 0;
+        if(document.getElementById("semente" + l).style.display !== "none") {
+            sementeV = parseInt(document.getElementById("semente" + l).style.top);
+            sementeH = parseInt(document.getElementById("semente" + l).style.left);
+
+            if ((playerH+49 >= sementeH && playerH + 49 <= sementeH + 30
+                || playerH <= sementeH + 30 && playerH >= sementeH)
+                && (playerV >= sementeV)) {
+
+                document.getElementById("semente" + l).style.display = "none";
+                sementes++;
+                document.getElementById("pontSementes").innerHTML="Sementes: "+ sementes;
             }
         }
+    }
+    document.cookie = JSON.stringify({"sementes": sementes, "ferramentas":ferramentas});
+}
+
+
 
 
 
