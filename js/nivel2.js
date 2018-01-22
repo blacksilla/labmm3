@@ -6,35 +6,36 @@ window.onload=function () {
 
 };
 
-var variaveis = JSON.parse(document.cookie);
+
+
+var myGameArea;
 var posicao_jogador,posicao_fundo;
 var player_esq=true;
 var active=[];
 var c=1;
-var sementes=0,ferramentas=0;
+var ferramentas=0;
 var deteta=null;
 var posSemente1,posSemente2,posSemente3,posSemente4,posSemente5;
 var c1,c2,c3,c4,c5;
 
 function carregaElementos() {
-    console.log(variaveis);
-    document.getElementById("player").style.left=0 +"px";
+    document.getElementById("player").style.left="0px";
     document.getElementById("bg").style.left=0 +"px";
     for(i=1;i<6;i++){
-        document.getElementById("action").innerHTML=document.getElementById("action").innerHTML + "<img class='semente' src='img/outros/seed.png' id='semente"+i+"' />"
+        document.getElementById("action").innerHTML=document.getElementById("action").innerHTML + "<img class='ferramentas' src='img/outros/shovel-01.png' id='ferramenta"+i+"' height='40' width='40'/>"
     }
-    document.getElementById("semente1").style.left=parseInt(Math.random()*(2300-200)+200) + "px";
-    document.getElementById("semente2").style.left=parseInt(Math.random()*(2300-200)+200) + "px";
-    document.getElementById("semente3").style.left=parseInt(Math.random()*(2300-200)+200) + "px";
-    document.getElementById("semente4").style.left=parseInt(Math.random()*(2300-200)+200) + "px";
-    document.getElementById("semente5").style.left=parseInt(Math.random()*(2300-200)+200) + "px";
+    document.getElementById("ferramenta1").style.left=parseInt(Math.random()*(2300-200)+200) + "px";
+    document.getElementById("ferramenta2").style.left=parseInt(Math.random()*(2300-200)+200) + "px";
+    document.getElementById("ferramenta3").style.left=parseInt(Math.random()*(2300-200)+200) + "px";
+    document.getElementById("ferramenta4").style.left=parseInt(Math.random()*(2300-200)+200) + "px";
+    document.getElementById("ferramenta5").style.left=parseInt(Math.random()*(2300-200)+200) + "px";
     posicao_jogador=parseInt(document.getElementById("player").style.left);
     posicao_fundo=parseInt(document.getElementById("bg").style.left);
-    document.getElementById("semente1").style.top= 355 + "px";
-    document.getElementById("semente2").style.top= 355 + "px";
-    document.getElementById("semente3").style.top= 355 + "px";
-    document.getElementById("semente4").style.top= 355 + "px";
-    document.getElementById("semente5").style.top= 355 + "px";
+    document.getElementById("ferramenta1").style.top= 355 + "px";
+    document.getElementById("ferramenta2").style.top= 355 + "px";
+    document.getElementById("ferramenta3").style.top= 355 + "px";
+    document.getElementById("ferramenta4").style.top= 355 + "px";
+    document.getElementById("ferramenta5").style.top= 355 + "px";
     document.getElementById("player").style.top=275 +"px";
 
     window.onkeydown=function(e){processaTecla(e)};
@@ -56,11 +57,11 @@ function processaTecla(e) {
             //console.log("posicao jogador", posicao_jogador, "posicao fundo", posicao_fundo);
             if (posicao_fundo > -2300) {
                 document.getElementById("bg").style.left = parseInt(document.getElementById("bg").style.left) - 5 + "px";
-                document.getElementById("semente1").style.left = parseInt(document.getElementById("semente1").style.left) - 5 + "px";
-                document.getElementById("semente2").style.left = parseInt(document.getElementById("semente2").style.left) - 5 + "px";
-                document.getElementById("semente3").style.left = parseInt(document.getElementById("semente3").style.left) - 5 + "px";
-                document.getElementById("semente4").style.left = parseInt(document.getElementById("semente4").style.left) - 5 + "px";
-                document.getElementById("semente5").style.left = parseInt(document.getElementById("semente5").style.left) - 5 + "px";
+                document.getElementById("ferramenta1").style.left = parseInt(document.getElementById("ferramenta1").style.left) - 5 + "px";
+                document.getElementById("ferramenta2").style.left = parseInt(document.getElementById("ferramenta2").style.left) - 5 + "px";
+                document.getElementById("ferramenta3").style.left = parseInt(document.getElementById("ferramenta3").style.left) - 5 + "px";
+                document.getElementById("ferramenta4").style.left = parseInt(document.getElementById("ferramenta4").style.left) - 5 + "px";
+                document.getElementById("ferramenta5").style.left = parseInt(document.getElementById("ferramenta5").style.left) - 5 + "px";
             }
             break;
         case "ArrowLeft":
@@ -72,19 +73,25 @@ function processaTecla(e) {
             //console.log("posicao jogador", posicao_jogador, "posicao fundo", posicao_fundo);
             if (posicao_fundo < 0) {
                 document.getElementById("bg").style.left = parseInt(document.getElementById("bg").style.left) + 5 + "px";
-                document.getElementById("semente1").style.left = parseInt(document.getElementById("semente1").style.left) + 5 + "px";
-                document.getElementById("semente2").style.left = parseInt(document.getElementById("semente2").style.left) + 5 + "px";
-                document.getElementById("semente3").style.left = parseInt(document.getElementById("semente3").style.left) + 5 + "px";
-                document.getElementById("semente4").style.left = parseInt(document.getElementById("semente4").style.left) + 5 + "px";
-                document.getElementById("semente5").style.left = parseInt(document.getElementById("semente5").style.left) + 5 + "px";
+                document.getElementById("ferramenta1").style.left = parseInt(document.getElementById("ferramenta1").style.left) + 5 + "px";
+                document.getElementById("ferramenta2").style.left = parseInt(document.getElementById("ferramenta2").style.left) + 5 + "px";
+                document.getElementById("ferramenta3").style.left = parseInt(document.getElementById("ferramenta3").style.left) + 5 + "px";
+                document.getElementById("ferramenta4").style.left = parseInt(document.getElementById("ferramenta4").style.left) + 5 + "px";
+                document.getElementById("ferramenta5").style.left = parseInt(document.getElementById("ferramenta5").style.left) + 5 + "px";
             }
             break;
+        case "ArrowUp":
+                salta();
+                animacao("cima");
+                break;
+
+
     }
-    posSemente1 = parseInt(document.getElementById("semente1").style.left);
-    posSemente2 = parseInt(document.getElementById("semente2").style.left);
-    posSemente3 = parseInt(document.getElementById("semente3").style.left);
-    posSemente4 = parseInt(document.getElementById("semente4").style.left);
-    posSemente5 = parseInt(document.getElementById("semente5").style.left);
+    posSemente1 = parseInt(document.getElementById("ferramenta1").style.left);
+    posSemente2 = parseInt(document.getElementById("ferramenta2").style.left);
+    posSemente3 = parseInt(document.getElementById("ferramenta3").style.left);
+    posSemente4 = parseInt(document.getElementById("ferramenta4").style.left);
+    posSemente5 = parseInt(document.getElementById("ferramenta5").style.left);
     detetaColisao();
 }
 
@@ -151,41 +158,48 @@ function detetaColisao() {
     var sementeH=0;
 
     for (var l = 1; l < 6; l++) {
-        if(document.getElementById("semente" + l).style.display !== "none") {
-            sementeV = parseInt(document.getElementById("semente" + l).style.top);
-            sementeH = parseInt(document.getElementById("semente" + l).style.left);
+        if(document.getElementById("ferramenta" + l).style.display !== "none") {
+            sementeV = parseInt(document.getElementById("ferramenta" + l).style.top);
+            sementeH = parseInt(document.getElementById("ferramenta" + l).style.left);
 
             if ((playerH+49 >= sementeH && playerH + 49 <= sementeH + 30
                 || playerH <= sementeH + 30 && playerH >= sementeH)
                 && (playerV >= sementeV)) {
 
-                document.getElementById("semente" + l).style.display = "none";
-                sementes++;
-                document.getElementById("pontSementes").innerHTML="Sementes: "+ sementes;
+                document.getElementById("ferramenta" + l).style.display = "none";
+                ferramentas++;
+                document.getElementById("pontFerramentas").innerHTML="Ferramentas: "+ ferramentas;
             }
         }
     }
+    //document.cookie = JSON.stringify({"sementes": sementes, "ferramentas":ferramentas});
+    localStorage.setItem("ferramentas",ferramentas);
 }
 
 
 
-document.cookie = JSON.stringify({"sementes": sementes, "ferramentas":ferramentas});
+function salta() {
+    console.log(document.getElementById("player").style.top);
+    playerV = parseInt(document.getElementById("player").style.top);
+    var height = 0;
+    var up = true;
+    salto = setInterval(function () {
+        if (height == 65)
+            up = false;
+        if (up)
+            height += 5;
+        else {
+            height -= 5;
+            if (height == 0)
+                clearInterval(salto);
+        }
+        document.getElementById("player").style.top = playerV - height + "px";
+        console.log(playerV);
+    }, 100);
+}
 
 
-/* if(tecla == " "){
- salto=setInterval(function(){salta()},100);
- }
- */
-/*
- function salta(){
- var altura=parseInt(document.getElementById("homer").style.top);
- console.log(document.getElementById("homer").style.top);
- document.getElementById("homer").style.top=altura - 5 + "px";
- if(altura==(195-65))
- document.getElementById("homer").style.top=altura + 5 + "px";
- clearInterval(salto);
 
- }
- */
+
 
 

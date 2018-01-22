@@ -16,7 +16,7 @@ var posSemente1,posSemente2,posSemente3,posSemente4,posSemente5;
 var c1,c2,c3,c4,c5;
 
 function carregaElementos() {
-    document.getElementById("player").style.left=0 +"px";
+    document.getElementById("player").style.left="0px";
     document.getElementById("bg").style.left=0 +"px";
     for(i=1;i<6;i++){
         document.getElementById("action").innerHTML=document.getElementById("action").innerHTML + "<img class='semente' src='img/outros/seed.png' id='semente"+i+"' />"
@@ -163,28 +163,7 @@ function detetaColisao() {
             }
         }
     }
-    document.cookie = JSON.stringify({"sementes": sementes, "ferramentas":ferramentas});
+    //document.cookie = JSON.stringify({"sementes": sementes, "ferramentas":ferramentas});
+    localStorage.setItem("sementes",sementes);
 }
-
-
-
-
-
-
-   /* if(tecla == " "){
-        salto=setInterval(function(){salta()},100);
-    }
-    */
-/*
-function salta(){
-    var altura=parseInt(document.getElementById("homer").style.top);
-    console.log(document.getElementById("homer").style.top);
-    document.getElementById("homer").style.top=altura - 5 + "px";
-    if(altura==(195-65))
-        document.getElementById("homer").style.top=altura + 5 + "px";
-    clearInterval(salto);
-
-}
-    */
-
 
