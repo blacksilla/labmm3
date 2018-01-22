@@ -13,8 +13,6 @@ var c=1;
 var fired = false;
 var ferramentas=0;
 var deteta=null;
-var posSemente1,posSemente2,posSemente3,posSemente4,posSemente5;
-var c1,c2,c3,c4,c5;
 
 
 

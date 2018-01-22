@@ -7,13 +7,11 @@ window.onload=function () {
 };
 
 var posicao_jogador,posicao_fundo;
-var player_esq=true;
 var active=[];
 var c=1;
 var sementes=0,ferramentas=0;
 var deteta=null;
-var posSemente1,posSemente2,posSemente3,posSemente4,posSemente5;
-var c1,c2,c3,c4,c5;
+
 
 function carregaElementos() {
     document.getElementById("player").style.left="0px";
@@ -47,7 +45,6 @@ function processaTecla(e) {
     switch (tecla) {
         case "ArrowRight":
             animacao("d");
-            player_esq = false;
             if (posicao_jogador >= 0 && posicao_jogador <= 240) {
                 mover("direita");
             }
@@ -62,7 +59,6 @@ function processaTecla(e) {
             }
             break;
         case "ArrowLeft":
-            player_esq = true;
             animacao("e");
             if (posicao_jogador <= 260 && posicao_jogador > 0) {
                 mover("esquerda");
@@ -78,11 +74,6 @@ function processaTecla(e) {
             }
             break;
     }
-    posSemente1 = parseInt(document.getElementById("semente1").style.left);
-    posSemente2 = parseInt(document.getElementById("semente2").style.left);
-    posSemente3 = parseInt(document.getElementById("semente3").style.left);
-    posSemente4 = parseInt(document.getElementById("semente4").style.left);
-    posSemente5 = parseInt(document.getElementById("semente5").style.left);
     detetaColisao();
 }
 
