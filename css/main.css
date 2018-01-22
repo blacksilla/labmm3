@@ -501,6 +501,7 @@ iframe{
 #player{
     position: absolute;
     top:275px;
+    z-index: 100;
 }
 
 body{
@@ -648,4 +649,9 @@ body{
 .myButtonVoltar:hover{
     background:url(../img/menu/voltar_hover.png) no-repeat;
     border: none;
+}
+
+.buracos{
+    position: absolute;
+    z-index: 99;
 }

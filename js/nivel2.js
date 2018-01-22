@@ -22,11 +22,20 @@ function carregaElementos() {
     for(i=1;i<6;i++){
         document.getElementById("action").innerHTML=document.getElementById("action").innerHTML + "<img class='ferramentas' src='img/outros/shovel-01.png' id='ferramenta"+i+"' height='40' width='40'/>"
     }
+    for(i=1;i<6;i++){
+        document.getElementById("action").innerHTML=document.getElementById("action").innerHTML + "<img class='buracos' src='img/buraco0.png' id='buraco"+i+"'/>"
+    }
+
     document.getElementById("ferramenta1").style.left=parseInt(Math.random()*(2300-200)+200) + "px";
     document.getElementById("ferramenta2").style.left=parseInt(Math.random()*(2300-200)+200) + "px";
     document.getElementById("ferramenta3").style.left=parseInt(Math.random()*(2300-200)+200) + "px";
     document.getElementById("ferramenta4").style.left=parseInt(Math.random()*(2300-200)+200) + "px";
     document.getElementById("ferramenta5").style.left=parseInt(Math.random()*(2300-200)+200) + "px";
+    document.getElementById("buraco1").style.left=parseInt(Math.random()*(2300-200)+200) + "px";
+    document.getElementById("buraco2").style.left=parseInt(Math.random()*(2300-200)+200) + "px";
+    document.getElementById("buraco3").style.left=parseInt(Math.random()*(2300-200)+200) + "px";
+    document.getElementById("buraco4").style.left=parseInt(Math.random()*(2300-200)+200) + "px";
+    document.getElementById("buraco5").style.left=parseInt(Math.random()*(2300-200)+200) + "px";
     posicao_jogador=parseInt(document.getElementById("player").style.left);
     posicao_fundo=parseInt(document.getElementById("bg").style.left);
     document.getElementById("ferramenta1").style.top= 350 + "px";
@@ -34,6 +43,11 @@ function carregaElementos() {
     document.getElementById("ferramenta3").style.top= 350 + "px";
     document.getElementById("ferramenta4").style.top= 350 + "px";
     document.getElementById("ferramenta5").style.top= 350 + "px";
+    document.getElementById("buraco1").style.top= 370 + "px";
+    document.getElementById("buraco2").style.top= 370 + "px";
+    document.getElementById("buraco3").style.top= 370 + "px";
+    document.getElementById("buraco4").style.top= 370 + "px";
+    document.getElementById("buraco5").style.top= 370 + "px";
     document.getElementById("player").style.top=275 +"px";
 
     window.onkeydown=function(e){processaTecla(e)};
@@ -60,6 +74,11 @@ function processaTecla(e) {
                 document.getElementById("ferramenta3").style.left = parseInt(document.getElementById("ferramenta3").style.left) - 5 + "px";
                 document.getElementById("ferramenta4").style.left = parseInt(document.getElementById("ferramenta4").style.left) - 5 + "px";
                 document.getElementById("ferramenta5").style.left = parseInt(document.getElementById("ferramenta5").style.left) - 5 + "px";
+                document.getElementById("buraco1").style.left = parseInt(document.getElementById("buraco1").style.left) - 5 + "px";
+                document.getElementById("buraco2").style.left = parseInt(document.getElementById("buraco2").style.left) - 5 + "px";
+                document.getElementById("buraco3").style.left = parseInt(document.getElementById("buraco3").style.left) - 5 + "px";
+                document.getElementById("buraco4").style.left = parseInt(document.getElementById("buraco4").style.left) - 5 + "px";
+                document.getElementById("buraco5").style.left = parseInt(document.getElementById("buraco5").style.left) - 5 + "px";
             }
             break;
         case "ArrowLeft":
@@ -75,6 +94,11 @@ function processaTecla(e) {
                 document.getElementById("ferramenta3").style.left = parseInt(document.getElementById("ferramenta3").style.left) + 5 + "px";
                 document.getElementById("ferramenta4").style.left = parseInt(document.getElementById("ferramenta4").style.left) + 5 + "px";
                 document.getElementById("ferramenta5").style.left = parseInt(document.getElementById("ferramenta5").style.left) + 5 + "px";
+                document.getElementById("buraco1").style.left = parseInt(document.getElementById("buraco1").style.left) + 5 + "px";
+                document.getElementById("buraco2").style.left = parseInt(document.getElementById("buraco2").style.left) + 5 + "px";
+                document.getElementById("buraco3").style.left = parseInt(document.getElementById("buraco3").style.left) + 5 + "px";
+                document.getElementById("buraco4").style.left = parseInt(document.getElementById("buraco4").style.left) + 5 + "px";
+                document.getElementById("buraco5").style.left = parseInt(document.getElementById("buraco5").style.left) + 5 + "px";
             }
             break;
         case "ArrowUp":
@@ -152,6 +176,8 @@ function detetaColisao() {
 
     var sementeV=0;
     var sementeH=0;
+    var buracoV=0;
+    var buracoH=0;
 
     for (var l = 1; l < 6; l++) {
         if(document.getElementById("ferramenta" + l).style.display !== "none") {
@@ -168,6 +194,19 @@ function detetaColisao() {
             }
         }
     }
+    for (var k = 1; k < 6; k++) {
+        if(document.getElementById("buraco" + k).style.display !== "none") {
+            buracoV = parseInt(document.getElementById("buraco" + k).style.top);
+            buracoH = parseInt(document.getElementById("buraco" + k).style.left);
+
+            if ((playerH+49 >= buracoH && playerH + 49 <= buracoH + 76
+                || playerH <= buracoH + 76 && playerH >= buracoH)
+                && (playerV >= buracoV)) {
+                window.alert("Perdeste");
+            }
+        }
+    }
+
     //document.cookie = JSON.stringify({"sementes": sementes, "ferramentas":ferramentas});
     //localStorage.setItem("ferramentas",ferramentas);
 }
