@@ -173,8 +173,6 @@ function detetaColisao() {
             }
         }
     }
-    //document.cookie = JSON.stringify({"sementes": sementes, "ferramentas":ferramentas});
-    //localStorage.setItem("ferramentas",ferramentas);
 
 }
 
@@ -206,7 +204,7 @@ function actualizaJogo() {
         moverTiro();
     detetaColisao();
     if(flame==5){
-        
+
     }
 }
 

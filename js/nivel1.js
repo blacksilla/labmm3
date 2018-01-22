@@ -14,6 +14,9 @@ var deteta=null;
 
 
 function carregaElementos() {
+    localStorage.clear();
+    sementes=localStorage.getItem("sementes");
+    ferramentas=localStorage.getItem("ferramentas");
     document.getElementById("player").style.left="0px";
     document.getElementById("bg").style.left=0 +"px";
     for(i=1;i<6;i++){
@@ -154,7 +157,9 @@ function detetaColisao() {
             }
         }
     }
-    //document.cookie = JSON.stringify({"sementes": sementes, "ferramentas":ferramentas});
     localStorage.setItem("sementes",sementes);
+    if(sementes==5 && ferramentas==5){
+        document.getElementById("btn_nivel_3").disabled=false;
+    }
 }
 

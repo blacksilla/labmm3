@@ -7,16 +7,19 @@ window.onload=function () {
 };
 
 
-
+var x=document.cookie;
 var posicao_jogador,posicao_fundo;
 var c=1;
 var fired = false;
 var ferramentas=0;
 var deteta=null;
+var sementes=0;
 
 
 
 function carregaElementos() {
+    sementes=localStorage.getItem("sementes");
+    document.getElementById("pontSementes").innerHTML="Sementes: "+ sementes;
     document.getElementById("player").style.left="0px";
     document.getElementById("bg").style.left=0 +"px";
     for(i=1;i<6;i++){
@@ -230,8 +233,7 @@ function detetaColisao() {
         }
     }
 
-    //document.cookie = JSON.stringify({"sementes": sementes, "ferramentas":ferramentas});
-    //localStorage.setItem("ferramentas",ferramentas);
+    localStorage.setItem("ferramentas",ferramentas);
 }
 
 
